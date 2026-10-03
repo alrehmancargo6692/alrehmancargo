@@ -1,0 +1,2 @@
+import { adminFromRequest, db, unauthorized } from '@/lib/db';
+export async function PATCH(req:Request){if(!await adminFromRequest(req))return unauthorized();const b=await req.json();const payload={phone:String(b.phone||'').slice(0,40),whatsapp:String(b.whatsapp||'').replace(/\D/g,'').slice(0,18),address:String(b.address||'').slice(0,300),description:String(b.description||'').slice(0,500)};const {data,error}=await db().from('cargo_settings').update(payload).eq('id',1).select('*').single();return error?Response.json({error:error.message},{status:500}):Response.json(data)}
