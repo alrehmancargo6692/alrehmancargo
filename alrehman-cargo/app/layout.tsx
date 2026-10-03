@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
-export const metadata: Metadata = { title:'الرحمن کارگو سروس', description:'ٹریلر، بیڈ فورڈ، ٹرک اور مزدا بکنگ اور کارگو منیجمنٹ', manifest:'/manifest.webmanifest', appleWebApp:{capable:true,title:'الرحمن کارگو'} };
+export const metadata: Metadata = { title:'الرحمن کارگو سروسز', description:'ٹریلر، بیڈ فورڈ، ٹرک اور مزدا بکنگ اور کارگو منیجمنٹ', manifest:'/manifest.webmanifest', appleWebApp:{capable:true,title:'الرحمن کارگو سروسز'} };
 export const viewport: Viewport = { width:'device-width', initialScale:1, themeColor:'#102d2b' };
-export default function RootLayout({children}:{children:React.ReactNode}) { return <html lang="ur" dir="rtl"><body>{children}</body></html>; }
+export default function RootLayout({children}:{children:React.ReactNode}) { return <html lang="ur" dir="rtl"><body>{children}<script dangerouslySetInnerHTML={{__html:"if('serviceWorker' in navigator){navigator.serviceWorker.getRegistrations().then(function(rs){rs.forEach(function(r){r.unregister()})});if('caches' in window){caches.keys().then(function(keys){keys.filter(function(k){return k.indexOf('alrehman-')===0}).forEach(function(k){caches.delete(k)})})}}"}}/></body></html>; }
